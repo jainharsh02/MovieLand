@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useState } from "react";
 import "../css/Register.css";
 import { useLocation } from "react-router-dom";
@@ -19,7 +19,7 @@ const Register = () => {
             <p>
               {register ? "Already have an account?" : "Don't have an account?"}
             </p>
-            <a href="" class="btn">
+            <a href="/" class="btn">
               {register ? "Sign In" : "Sign Up"}
             </a>
           </div>

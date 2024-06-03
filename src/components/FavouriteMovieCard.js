@@ -4,7 +4,7 @@ import db from "../firebase/config"; // Adjust the import based on your project 
 
 const FavouriteMovieCard = ({ movie, onRemove }) => {
   const handleRemove = async () => {
-    const docRef = doc(db, "Fav", "aditya");
+    const docRef = doc(db, "users", "harsh");
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {

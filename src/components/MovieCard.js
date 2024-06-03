@@ -4,22 +4,16 @@ import db from "../firebase/config";
 
 const MovieCard = ({ movie }) => {
   const handlefavourites = async () => {
-    const docRef = doc(db, "Fav", "harsh");
-    
-    // Get the current document data
+    const docRef = doc(db, "users", "harsh");
     const docSnap = await getDoc(docRef);
     
     if (docSnap.exists()) {
-      // If the document exists, get the current favourites array
       const currentFavourites = docSnap.data().favourite || [];
       
-      // Append the new movie to the current favourites
       const updatedFavourites = [...currentFavourites, movie];
       
-      // Update the document with the new favourites array
       await setDoc(docRef, { favourite: updatedFavourites }, { merge: true });
     } else {
-      // If the document does not exist, create it with the new movie as the first favourite
       await setDoc(docRef, { favourite: [movie] }, { merge: true });
     }
   };

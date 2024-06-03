@@ -83,7 +83,7 @@ const FavMovie = () => {
 
   // Fetch movies from Firestore
   const fetchMovies = async () => {
-    const docRef = doc(db, "Fav", "aditya");
+    const docRef = doc(db, "users", "harsh");
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
