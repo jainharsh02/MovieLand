@@ -8,6 +8,7 @@ const Register = () => {
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
   const register = useLocation().pathname === "/register";
+  // const navigate = useNavigate();
   const { signup, login } = useAuth({ loginURL: "/" });
 
   return (
