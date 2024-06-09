@@ -1,13 +1,21 @@
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Home from "./components/Home";
-// import Register from "./components/Register"
+// import { Routes, Route, BrowserRouter} from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
+import Register from "./components/Register"
 
 function App() {
   return (
     <>
       <ToastContainer stacked={true} />
-      <Home />
+      <>
+    <Routes>
+    <Route path ="/" element={<Register />} />
+    <Route path ="gigs" element={<Home />} />
+    </Routes>
+</>
+      {/* <Home /> */}
       {/* <Register /> */}
     </>
   );
