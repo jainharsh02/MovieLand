@@ -24,7 +24,7 @@ const useAuth = ({ loginURL, logoutURL }) => {
         if (userCredentials) {
           setIsAuthenticated(true);
           setUser(userCredentials.user);
-          loginURL && router.replace(loginURL);
+          loginURL && router(loginURL, { register: true });
         }
       })
       .catch((err) => {
@@ -38,7 +38,7 @@ const useAuth = ({ loginURL, logoutURL }) => {
       .then(() => {
         setIsAuthenticated(false);
         setUser({});
-        logoutURL && router.replace(logoutURL);
+        logoutURL && router(logoutURL, { replace: true });
       })
       .catch((err) => {
         console.log(err);
@@ -52,7 +52,7 @@ const useAuth = ({ loginURL, logoutURL }) => {
         if (userCredentials) {
           setIsAuthenticated(true);
           setUser(userCredentials.user);
-          loginURL && router.replace(loginURL);
+          loginURL && router(loginURL, { replace: true });
         }
       })
       .catch((err) => {
@@ -66,7 +66,7 @@ const useAuth = ({ loginURL, logoutURL }) => {
       if (user) {
         setIsAuthenticated(true);
       } else setIsAuthenticated(false);
-      loginURL && router.replace(loginURL);
+      loginURL && router(loginURL, { replace: true });
       setLoading(false);
     });
   }, [auth, router, setIsAuthenticated, loginURL]);

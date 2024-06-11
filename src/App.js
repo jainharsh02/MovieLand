@@ -10,11 +10,12 @@ function App() {
     <>
       <ToastContainer stacked={true} />
       <>
-    <Routes>
-    <Route path ="/" element={<Register />} />
-    <Route path ="gigs" element={<Home />} />
-    </Routes>
-</>
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Register />} />
+          <Route path="/gigs" element={<Home />} />
+        </Routes>
+      </>
       {/* <Home /> */}
       {/* <Register /> */}
     </>

@@ -1,7 +1,7 @@
 // import axios from "axios";
 import React, { useState } from "react";
 import "../css/Register.css";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const Register = () => {
@@ -9,7 +9,7 @@ const Register = () => {
   const [pwd, setPwd] = useState("");
   const register = useLocation().pathname === "/register";
   // const navigate = useNavigate();
-  const { signup, login } = useAuth({ loginURL: "/" });
+  const { signup, login } = useAuth({ loginURL: "/gigs" });
 
   return (
     <div class="wrapper login">
@@ -20,15 +20,15 @@ const Register = () => {
             <p>
               {register ? "Already have an account?" : "Don't have an account?"}
             </p>
-            <a href="/" class="btn">
+            <Link to={register ? "/login" : "/register"} class="btn">
               {register ? "Sign In" : "Sign Up"}
-            </a>
+            </Link>
           </div>
         </div>
         <div class="col-right">
           <div class="login-form">
             <h2>{register ? "Register" : "Login"}</h2>
-            <form action="">
+            <div action="">
               <p>
                 <label>
                   Email address<span>*</span>
@@ -54,15 +54,13 @@ const Register = () => {
                 />
               </p>
               <p>
-                <input
+                <button
                   onClick={
                     register ? () => signup(user, pwd) : () => login(user, pwd)
                   }
-                  type="submit"
-                  value={register ? "Sign Up" : "Sign In"}
-                />
+                >{register ? "Sign Up" : "Sign In"}</button>
               </p>
-            </form>
+            </div>
           </div>
         </div>
       </div>
