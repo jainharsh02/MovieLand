@@ -1,11 +1,17 @@
 import React from "react";
+import { getAuth } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import db from "../firebase/config"; // Adjust the import based on your project structure
 
 const FavouriteMovieCard = ({ movie, onRemove }) => {
   const handleRemove = async () => {
-    const docRef = doc(db, "users", "harsh");
-    const docSnap = await getDoc(docRef);
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+      const userId = user.uid;
+      const docRef = doc(db, "users", userId);
+      const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
       const currentFavourites = docSnap.data().favourite || [];
@@ -16,6 +22,9 @@ const FavouriteMovieCard = ({ movie, onRemove }) => {
       await setDoc(docRef, { favourite: updatedFavourites }, { merge: true });
       onRemove(updatedFavourites);
     }
+  }else {
+    console.log("No user is signed in");
+  }
   };
 
   return (

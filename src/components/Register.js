@@ -8,25 +8,25 @@ const Register = () => {
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
   const register = useLocation().pathname === "/register";
-  // const navigate = useNavigate();
+  
   const { signup, login } = useAuth({ loginURL: "/gigs" });
 
   return (
-    <div class="wrapper login">
-      <div class="container">
-        <div class="col-left">
-          <div class="login-text">
+    <div className="wrapper login">
+      <div className="container">
+        <div className="col-left">
+          <div className="login-text">
             <h2>Welcome!</h2>
             <p>
               {register ? "Already have an account?" : "Don't have an account?"}
             </p>
-            <Link to={register ? "/login" : "/register"} class="btn">
+            <Link to={register ? "/login" : "/register"} className="btn">
               {register ? "Sign In" : "Sign Up"}
             </Link>
           </div>
         </div>
-        <div class="col-right">
-          <div class="login-form">
+        <div className="col-right">
+          <div className="login-form">
             <h2>{register ? "Register" : "Login"}</h2>
             <div action="">
               <p>

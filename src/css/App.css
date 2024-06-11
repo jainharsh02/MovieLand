@@ -233,3 +233,40 @@ body {
     margin: 1rem;
   }
 }
+
+.btn {
+  padding: 10px 20px;
+  background-color: #111213;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.btn:hover {
+  background-color: #000000;
+}
+
+.fav-heading {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.error-message {
+  color: red;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-btn-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+}
