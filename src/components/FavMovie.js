@@ -29,7 +29,7 @@ const FavMovie = () => {
   };
   useEffect(() => {
     fetchMovies();
-  }, []);
+  }, [favmovies]);
 
   return <FavouriteMovies movies={favmovies} />;
 };
